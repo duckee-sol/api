@@ -36,7 +36,7 @@ export class GenerateInBackground {
       const lambdaClient = new Lambda({});
       console.log('invoking lambda');
       return await lambdaClient.invoke({
-        FunctionName: 'duckee-api-dev-asyncTask',
+        FunctionName: 'duckee-solana-api-dev-asyncTask',
         InvocationType: InvocationType.Event,
         Payload: Buffer.from(JSON.stringify({ type: 'generate', payload })),
       });
