@@ -1,5 +1,5 @@
 ---
-service: duckee-api
+service: duckee-solana-api
 frameworkVersion: '3'
 provider:
   name: aws
@@ -23,7 +23,7 @@ provider:
       Action:
         - 'lambda:InvokeFunction'
       Resource:
-        - 'arn:aws:lambda:ap-northeast-2:600288883458:function:duckee-api-dev-asyncTask'
+        - 'arn:aws:lambda:ap-northeast-2:600288883458:function:duckee-solana-api-dev-asyncTask'
 functions:
   app:
     handler: src/serverless.handler
@@ -47,7 +47,7 @@ custom:
     plugins: ./serverless-esbuild-plugins.js
   stages:
     dev:
-      domain: api.duckee.xyz
+      domain: api-solana.duckee.xyz
       cerficiateArn: arn:aws:acm:us-east-1:600288883458:certificate/afe87ee5-fbf8-424e-8ead-65b8850da2a2
       stageEnviron: development
 

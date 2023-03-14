@@ -1,7 +1,6 @@
 import { DataSource } from 'typeorm';
 import { ConfigKey } from '~/utils';
 import { ART_ENTITIES } from './art';
-import { BLOCKCHAIN_ENTITIES } from './blockchain';
 import { GENERATION_ENTITIES } from './generation';
 import { FIREBASE_INTEGRATION_ENTITIES } from './integration/firebase';
 import { PAYMENT_ENTITIES } from './payment';
@@ -36,7 +35,6 @@ export const initializeDatabase = async (config: DatabaseConfig): Promise<DataSo
       ...USER_ENTITIES,
       ...FIREBASE_INTEGRATION_ENTITIES,
       ...GENERATION_ENTITIES,
-      ...BLOCKCHAIN_ENTITIES,
       ...PAYMENT_ENTITIES,
     ],
     synchronize: true,

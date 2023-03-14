@@ -8,7 +8,6 @@ specifiers:
   '@koa/cors': ^4.0.0
   '@koa/multer': ^3.0.2
   '@koa/router': ^12.0.0
-  '@onflow/fcl': ^1.3.2
   '@tsoa/runtime': ^4.1.3
   '@types/elliptic': ^6.4.14
   '@types/jest': ^28.1.8
@@ -40,6 +39,7 @@ specifiers:
   firebase-admin: ^11.5.0
   google-auth-library: ^8.7.0
   jest: ^29.0.1
+  jose: ^4.13.1
   jsonwebtoken: ^8.5.1
   koa: ^2.13.4
   koa-bodyparser: ^4.3.0
@@ -82,7 +82,6 @@ dependencies:
   '@aws-sdk/lib-storage': 3.279.0_7cnq4ycari7w7a7om7vbkeabiq
   '@koa/multer': 3.0.2_multer@1.4.5-lts.1
   '@koa/router': 12.0.0
-  '@onflow/fcl': 1.3.2
   '@tsoa/runtime': 4.1.3
   '@types/multer': 1.4.7
   axios: 1.3.4
@@ -91,6 +90,7 @@ dependencies:
   elliptic: 6.5.4
   firebase-admin: 11.5.0
   google-auth-library: 8.7.0
+  jose: 4.13.1
   jsonwebtoken: 8.5.1
   koa: 2.13.4
   koa-bodyparser: 4.3.0
@@ -1761,13 +1761,6 @@ packages:
       - supports-color
     dev: false
 
-  /@babel/runtime/7.21.0:
-    resolution: { integrity: sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw== }
-    engines: { node: '>=6.9.0' }
-    dependencies:
-      regenerator-runtime: 0.13.11
-    dev: false
-
   /@babel/template/7.18.10:
     resolution: { integrity: sha512-TI+rCtooWHr3QJ27kJxfjutghu44DLnasDMwpDqCXVTal9RLp3RSYNh4NdBrRP2cQAoG9A8juOQl6P6oZG4JxA== }
     engines: { node: '>=6.9.0' }
@@ -2837,119 +2830,6 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: true
-
-  /@onflow/config/1.0.5:
-    resolution: { integrity: sha512-r2IUyY4SJgAY6YCzKL0cOOertHETp9BgVfCjTIq236WAHr7aMS1oNyqcVPPR++zjDK8n64lRgrxlcYSZB/LrFg== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-      '@onflow/util-actor': 1.1.2
-    dev: false
-
-  /@onflow/fcl/1.3.2:
-    resolution: { integrity: sha512-H2YduE8JUMqjUBR9R3YOFgWrT/yMg+aE5w8uwrMD3YJ/wGpF6iKo0XJGRa7kPVn5pP0HjKQnOlmCLvHwEGEhQQ== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-      '@onflow/config': 1.0.5
-      '@onflow/interaction': 0.0.11
-      '@onflow/rlp': 1.0.4
-      '@onflow/sdk': 1.1.2
-      '@onflow/types': 1.0.5
-      '@onflow/util-actor': 1.1.2
-      '@onflow/util-address': 1.0.3
-      '@onflow/util-invariant': 1.0.3
-      '@onflow/util-logger': 1.1.2
-      '@onflow/util-template': 1.0.4
-      '@onflow/util-uid': 1.0.3
-      node-fetch: 2.6.9
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  /@onflow/interaction/0.0.11:
-    resolution: { integrity: sha512-Xuq1Mmx6Wyba/F/L+QLQs0yJeQDsIDwy5SKk5vrCuVgIj0yD8k506g5L8ODrbM1LWll8i0tQsoOi0F85vNl5sA== }
-    dev: false
-
-  /@onflow/rlp/1.0.4:
-    resolution: { integrity: sha512-/4jSoh9eXPoN9iUCsbI+PAuTRJyYgT+XR4NdZYmxILRwOtIsSd2I9XatA4rrSzk9DJ0h8l9SmYx1y0XLnD+ohQ== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-      buffer: 6.0.3
-    dev: false
-
-  /@onflow/sdk/1.1.2:
-    resolution: { integrity: sha512-HNfQ6Q91FfFwd2g1wa/YHvmv6BYeXGONkEJyfOaoPRIbp3lG9W35HYX7Yvgtn7fvcQG+TRL8n386mzJ6Vn4dmA== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-      '@onflow/config': 1.0.5
-      '@onflow/rlp': 1.0.4
-      '@onflow/transport-http': 1.5.0
-      '@onflow/util-actor': 1.1.2
-      '@onflow/util-address': 1.0.3
-      '@onflow/util-invariant': 1.0.3
-      '@onflow/util-logger': 1.1.2
-      '@onflow/util-template': 1.0.4
-      deepmerge: 4.2.2
-      sha3: 2.1.4
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  /@onflow/transport-http/1.5.0:
-    resolution: { integrity: sha512-CGgfPC1kI+ssqDgFXxGgKHLVtu1tCGtyGJiS/fplyVun9RC7AwEp2KkjTP2dxRlto3HmntoaBkOw7z38UCxRZw== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-      '@onflow/util-address': 1.0.3
-      '@onflow/util-invariant': 1.0.3
-      '@onflow/util-logger': 1.1.2
-      '@onflow/util-template': 1.0.4
-      node-fetch: 2.6.9
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  /@onflow/types/1.0.5:
-    resolution: { integrity: sha512-Uf6APOwgkxPwgonQ8JRrOB0KZ5eJpNBVXlEiZIv5ddzsfM6qd9p3csEE5YmuLhAooAcisG3ROTzw2hT/zUNGbw== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-    dev: false
-
-  /@onflow/util-actor/1.1.2:
-    resolution: { integrity: sha512-fsRGw5c2idlG5T0u48tzah1iE0OIc4WmgrNYN0gQ1NHX+Ue8iySoQdCIcdSxJCHOXwpHWe68fWTonCzbRJOssQ== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-      queue-microtask: 1.1.2
-    dev: false
-
-  /@onflow/util-address/1.0.3:
-    resolution: { integrity: sha512-w8DPYSvYm5h0hhZ0hZwiCwu9UgJBtIv2KyhDiH3TZG8srT+9GxtTPX4NzZtAVuxqWTNVlTGePD/Upxusiwnk6g== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-    dev: false
-
-  /@onflow/util-invariant/1.0.3:
-    resolution: { integrity: sha512-+Hk93W9JwACLkM5/oOILqI9L55o5QxETBV5Du/2dLgNbjXDElMmQzURFXx6fTmODTLZ6Ri+d1nvb7AxapYFe0Q== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-    dev: false
-
-  /@onflow/util-logger/1.1.2:
-    resolution: { integrity: sha512-BcVDzKNGv/j3gqnq1lc0fpJV7LCHWPJyzYR588/keiY90mFHwLe8ahXYG1UYPu02KymlVqlInfISKWlNwk4aug== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-      '@onflow/config': 1.0.5
-    dev: false
-
-  /@onflow/util-template/1.0.4:
-    resolution: { integrity: sha512-syTJzhFn+CaW/FAqVLJJ3Oq9pTuxS5Wk0+g9AkSKWJ8PCY+FLr7UC2mGr/5pO//L13Elz7cv/djXVxNA1ULQmw== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-    dev: false
-
-  /@onflow/util-uid/1.0.3:
-    resolution: { integrity: sha512-hBdfV+0BSDphcvLvL8KFivyV5ZhpVyRcrOn0fuSD4is/hN5d1mLFBev9gur9gdmQUUwgFt0v+aA/Tc/7mRDctQ== }
-    dependencies:
-      '@babel/runtime': 7.21.0
-    dev: false
 
   /@panva/asn1.js/1.0.0:
     resolution: { integrity: sha512-UdkG3mLEqXgnlKsWanWcgb6dOjUzJ+XC5f+aWw30qrtjxeNUSfKX1cd5FBzOaXQumoe9nIqeZUvrRJS03HCCtw== }
@@ -7478,26 +7358,26 @@ packages:
 
   /jmespath/0.16.0:
     resolution: {integrity: sha512-9FzQjJ7MATs1tSpnco1K6ayiYE3figslrXA72G2HQ/n76RzvYlofyi5QM+iX4YRs/pu3yzxlVQSST23+dMDknw==}
-    engines: {node: '>= 0.6.0'}
+    engines: { node: '>= 0.6.0' }
     dev: true
 
   /jose/2.0.6:
-    resolution: {integrity: sha512-FVoPY7SflDodE4lknJmbAHSUjLCzE2H1F6MS0RYKMQ8SR+lNccpMf8R4eqkNYyyUjR5qZReOzZo5C5YiHOCjjg==}
-    engines: {node: '>=10.13.0 < 13 || >=13.7.0'}
+    resolution: { integrity: sha512-FVoPY7SflDodE4lknJmbAHSUjLCzE2H1F6MS0RYKMQ8SR+lNccpMf8R4eqkNYyyUjR5qZReOzZo5C5YiHOCjjg== }
+    engines: { node: '>=10.13.0 < 13 || >=13.7.0' }
     dependencies:
       '@panva/asn1.js': 1.0.0
     dev: false
 
-  /jose/4.12.0:
-    resolution: {integrity: sha512-wW1u3cK81b+SFcHjGC8zw87yuyUweEFe0UJirrXEw1NasW00eF7sZjeG3SLBGz001ozxQ46Y9sofDvhBmWFtXQ==}
+  /jose/4.13.1:
+    resolution: { integrity: sha512-MSJQC5vXco5Br38mzaQKiq9mwt7lwj2eXpgpRyQYNHYt2lq1PjkWa7DLXX0WVcQLE9HhMh3jPiufS7fhJf+CLQ== }
 
   /js-string-escape/1.0.1:
-    resolution: {integrity: sha512-Smw4xcfIQ5LVjAOuJCvN/zIodzA/BBSsluuoSykP+lUvScIi4U6RJLfwHet5cxFnCswUjISV8oAXaqaJDY3chg==}
-    engines: {node: '>= 0.8'}
+    resolution: { integrity: sha512-Smw4xcfIQ5LVjAOuJCvN/zIodzA/BBSsluuoSykP+lUvScIi4U6RJLfwHet5cxFnCswUjISV8oAXaqaJDY3chg== }
+    engines: { node: '>= 0.8' }
     dev: true
 
   /js-tokens/4.0.0:
-    resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    resolution: { integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ== }
 
   /js-yaml/3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
@@ -7706,7 +7586,7 @@ packages:
       '@types/express': 4.17.14
       '@types/jsonwebtoken': 9.0.1
       debug: 4.3.4
-      jose: 4.12.0
+      jose: 4.13.1
       limiter: 1.1.5
       lru-memoizer: 2.1.4
     transitivePeerDependencies:
@@ -9237,10 +9117,6 @@ packages:
     deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
     dev: true
 
-  /queue-microtask/1.1.2:
-    resolution: { integrity: sha512-F9wwNePtXrzZenAB3ax0Y8TSKGvuB7Qw16J30hspEUTbfUM+H827XyN3rlpwhVmtm5wuZtbKIHjOnwDn7MUxWQ== }
-    dev: false
-
   /queue-microtask/1.2.3:
     resolution: { integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A== }
     dev: true
@@ -9358,10 +9234,6 @@ packages:
 
   /reflect-metadata/0.1.13:
     resolution: { integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg== }
-    dev: false
-
-  /regenerator-runtime/0.13.11:
-    resolution: { integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg== }
     dev: false
 
   /regexp.prototype.flags/1.4.3:
@@ -9654,7 +9526,7 @@ packages:
       fs-extra: 11.1.0
       is-wsl: 2.2.0
       java-invoke-local: 0.0.6
-      jose: 4.12.0
+      jose: 4.13.1
       js-string-escape: 1.0.1
       jsonpath-plus: 7.2.0
       jsonschema: 1.4.1

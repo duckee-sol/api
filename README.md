@@ -1,6 +1,6 @@
 # 💻 Duckee API
 
-This is API server implementation of Duckee, an generative art exchange platform on [Flow](https://flow.com/).
+This is API server implementation of Duckee, an generative art exchange platform on [Solana](https://solana.com/).
 
 * Testnet API Endpoint: [**api.duckee.xyz**](https://api.duckee.xyz)
 * [Swagger API Documentation](https://api.duckee.xyz/swagger)
@@ -11,7 +11,6 @@ This is API server implementation of Duckee, an generative art exchange platform
 
 * Node.JS >= 16 or higher
 * [`pnpm`](https://pnpm.io) Package Manager
-* Flow Emulator with [duckee-xyz/contract](https://github.com/duckee-xyz/contract) deployed
 
 ### Setting Up Dependencies
 
@@ -37,4 +36,4 @@ with [autoenv](https://github.com/hyperupcall/autoenv):
 
 ## Deploying API
 
-AWS Lambda
+We use AWS Lambda

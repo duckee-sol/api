@@ -1,7 +1,6 @@
 import { generateSlug } from 'random-word-slugs';
 import { Service } from 'typedi';
 import { User, UserRepository } from '~/user';
-import { CreateUserWallet } from '../../blockchain';
 import { SignInAndUpInput } from '../types';
 import { CheckUserUsesOtherLoginChannel } from './CheckUserUsesOtherLoginChannel';
 import { LoginChannels } from './social-logins';
@@ -12,7 +11,6 @@ export class SignUp {
     private userRepository: UserRepository,
     private loginChannels: LoginChannels,
     private checkUserUsesOtherLoginChannel: CheckUserUsesOtherLoginChannel,
-    private createWallet: CreateUserWallet,
   ) {}
 
   // TODO: transactional
@@ -23,7 +21,7 @@ export class SignUp {
     // to check duplicated user
     await this.checkUserUsesOtherLoginChannel.call(channel, socialLoginResult.email);
 
-    const wallet = await this.createWallet.call();
+    // const wallet = await this.createWallet.call();
 
     const user = await this.userRepository.create({
       nickname: generateSlug(2),
