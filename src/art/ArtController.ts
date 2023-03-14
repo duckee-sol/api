@@ -36,7 +36,11 @@ export class ArtController {
   @Security('JWT')
   @SuccessResponse(201)
   async create(@Request() { user }: Koa.Request, @Body() creation: ArtCreationRequest) {
-    const artDetails = await this.createArtNFT.call(user, creation);
+    const created = await this.artRepository.create({
+      ...creation,
+      owner: user,
+    });
+    const artDetails = await this.artRepository.details(user, created.tokenId);
     return { artDetails };
   }
 
@@ -76,7 +80,8 @@ export class ArtController {
    */
   @Post('/nft')
   async mintNft(@Body() request: { art: ArtCreationRequest; recipient: string }) {
-    return { tokenMint: '' };
+    const tokenMint = await this.createArtNFT.call(request.recipient, request.art);
+    return { tokenMint };
   }
 
   /**

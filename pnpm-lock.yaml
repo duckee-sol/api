@@ -60,7 +60,6 @@ specifiers:
   promise.any: ^2.0.5
   random-word-slugs: ^0.1.6
   reflect-metadata: ^0.1.13
-  resolve-tspaths: ^0.8.3
   serverless: ^3.27.0
   serverless-domain-manager: ^6.4.3
   serverless-esbuild: ^1.39.0
@@ -113,7 +112,6 @@ dependencies:
   serverless-http: 3.1.1
   sha3: 2.1.4
   stripe: 11.12.0
-  tsconfig-paths: 4.1.0
   tsoa: 4.1.3
   typedi: 0.10.0
   typeorm: 0.3.10_pa4ea3wjef6s4gsskhbyci3cte
@@ -148,7 +146,6 @@ devDependencies:
   nodemon: 2.0.20
   plop: 3.1.1
   prettier: 2.7.1
-  resolve-tspaths: 0.8.3_typescript@4.9.4
   serverless: 3.27.0
   serverless-domain-manager: 6.4.3
   serverless-esbuild: 1.39.0_esbuild@0.17.10
@@ -156,6 +153,7 @@ devDependencies:
   serverless-plugin-warmup: 8.2.1
   ts-jest: 28.0.8_yd5xs6tkj4vvdzbdadtuo3xjvy
   ts-node: 10.9.1_2ruir5wjsr7guwibcnwysex364
+  tsconfig-paths: 4.1.0
   typescript: 4.9.4
 
 packages:
@@ -4386,11 +4384,6 @@ packages:
       string-width: 4.2.3
     dev: true
 
-  /ansi-colors/4.1.3:
-    resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
-    engines: {node: '>=6'}
-    dev: true
-
   /ansi-escapes/4.3.2:
     resolution: {integrity: sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==}
     engines: {node: '>=8'}
@@ -5464,11 +5457,6 @@ packages:
     resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
     engines: {node: '>= 12'}
     dev: false
-
-  /commander/9.4.1:
-    resolution: {integrity: sha512-5EEkTNyHNGFPD2H+c/dXXfQZYa/scCKasxWcXJaWnNJ99pnQN9Vnmqow+p+PlFPE63Q6mThaZws1T+HxfpgtPw==}
-    engines: {node: ^12.20.0 || >=14}
-    dev: true
 
   /component-emitter/1.3.0:
     resolution: {integrity: sha512-Rd3se6QB+sO1TwqZjscQrurpEPIfO0/yYnSin6Q/rD3mOutHvUrCAhJub3r90uNb+SESBuE0QYoB90YdfatsRg==}
@@ -10620,18 +10608,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /resolve-tspaths/0.8.3_typescript@4.9.4:
-    resolution: {integrity: sha512-91Qc0+Ta7teMjjqW0DOmeCkcx54QAkS1TcEwwMnnjg2g7BCRxM+2lutWnEPBtzVMcHtc+hRNy2O+zmOfREV0dg==}
-    hasBin: true
-    peerDependencies:
-      typescript: '>=3.0.3'
-    dependencies:
-      ansi-colors: 4.1.3
-      commander: 9.4.1
-      fast-glob: 3.2.12
-      typescript: 4.9.4
-    dev: true
-
   /resolve.exports/1.1.0:
     resolution: {integrity: sha512-J1l+Zxxp4XK3LUDZ9m60LRJF/mAe4z6a4xyabPHk7pvK5t35dACV32iIjJDFeWZFfZlO29w6SZ67knR0tHzJtQ==}
     engines: {node: '>=10'}
@@ -11284,6 +11260,7 @@ packages:
   /strip-bom/3.0.0:
     resolution: {integrity: sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==}
     engines: {node: '>=4'}
+    dev: true
 
   /strip-bom/4.0.0:
     resolution: {integrity: sha512-3xurFv5tEgii33Zi8Jtp55wEIILR9eh34FAW00PZf+JnSsTmV/ioewSgQl97JHvgjoRGwPShsWm+IdrxB35d0w==}
@@ -11697,7 +11674,7 @@ packages:
       json5: 2.2.1
       minimist: 1.2.7
       strip-bom: 3.0.0
-    dev: false
+    dev: true
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}

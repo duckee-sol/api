@@ -67,6 +67,10 @@ export class ArtRepository {
     };
   }
 
+  async countTotal(): Promise<number> {
+    return this.artRepo.countBy({});
+  }
+
   async get(tokenId: number): Promise<Art> {
     const entity = await this.artRepo.findOneBy({ tokenId });
     if (!entity) {
