@@ -26,6 +26,7 @@ export class ArtRepository {
     const liked = user ? (await this.artLikeRepo.countBy({ user, art: { tokenId: entity.tokenId } })) > 0 : false;
     return {
       tokenId: entity.tokenId,
+      tokenMint: entity.tokenMint,
       description: entity.description,
       forSale: entity.forSale,
       liked,

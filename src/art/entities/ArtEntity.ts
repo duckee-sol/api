@@ -7,6 +7,9 @@ export class ArtEntity {
   @PrimaryGeneratedColumn()
   tokenId: number;
 
+  @Column({ nullable: true })
+  tokenMint?: string;
+
   @Column({ type: 'text', nullable: true })
   description?: string;
 

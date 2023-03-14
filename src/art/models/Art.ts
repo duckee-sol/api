@@ -3,6 +3,7 @@ import { Recipe } from './Recipe';
 
 export interface Art {
   tokenId: number;
+  tokenMint?: string;
   description?: string;
   liked: boolean;
   imageUrl: string;

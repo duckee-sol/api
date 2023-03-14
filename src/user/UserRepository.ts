@@ -36,7 +36,7 @@ export class UserRepository {
   }
 
   async update(id: number, update: Partial<User>) {
-    await this.userRepo.update({id}, update);
+    await this.userRepo.update({ id }, update);
   }
 
   async findOne(where: FindOptionsWhere<UserEntity>): Promise<User | undefined> {
@@ -75,13 +75,26 @@ export class UserRepository {
       .getRawOne()
       .then((it) => Number(it.followerCount));
 
+    const result: { artCount: string }[] = await this.userRepo.query(
+      'SELECT COUNT(*) as artCount FROM art WHERE ownerId = ?',
+      [id],
+    );
+    const artCount = result && result.length ? Number(result[0].artCount) : 0;
+
+    const recipeResult: { balance: string }[] = await this.userRepo.query(
+      'SELECT SUM(a.priceInFlow) as balance FROM payment_log JOIN art a ON a.tokenId = artTokenId WHERE a.ownerId = ? AND status = "succeed"',
+      [id],
+    );
+    const usdcBalance = recipeResult && recipeResult.length ? Number(recipeResult[0].balance) : 0;
+    const creditBalance = Math.max(100 - 5 * artCount, 15); // TODO: for test
+
     return {
       ...user,
       followingCount,
       followerCount,
-      artCount: 0,
-      creditBalance: 100,
-      usdcBalance: 0,
+      artCount,
+      creditBalance,
+      usdcBalance,
     };
   }
 

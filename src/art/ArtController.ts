@@ -72,6 +72,14 @@ export class ArtController {
   }
 
   /**
+   * @summary Mint NFT
+   */
+  @Post('/nft')
+  async mintNft(@Body() request: { art: ArtCreationRequest; recipient: string }) {
+    return { tokenMint: '' };
+  }
+
+  /**
    * @param tokenId
    * @summary Get public art NFT information
    */
