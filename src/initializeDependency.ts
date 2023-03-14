@@ -1,3 +1,4 @@
+import { clusterApiUrl, Connection } from '@solana/web3.js';
 import axios, { Axios } from 'axios';
 import { Container } from 'typedi';
 import { DataSource } from 'typeorm';
@@ -12,6 +13,9 @@ export async function initializeDependency() {
   const database = await initializeDatabase(config.database);
   Container.set(DataSource, database);
   registerForInjectRepository(database);
+
+  const connection = new Connection(clusterApiUrl('devnet'));
+  // const adminKeypair = Keypair.fromSecretKey(JSON.parse(config.blockchain.adminPrivateKey));
 
   Container.set(
     Axios,
