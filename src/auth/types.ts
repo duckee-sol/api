@@ -21,6 +21,7 @@ export interface JWTPayload {
 
 export enum SocialLoginType {
   FIREBASE = 'firebase',
+  WEB3AUTH = 'web3auth',
   TEST = 'test',
 }
 
@@ -45,4 +46,10 @@ export interface SignInAndUpInput {
    *  @example "eyJhbGciOiJIUzI...Qedy-rosPJLzs3jArh6Vc"
    */
   token: string;
+
+  /**
+   * The user's wallet address. (A public key encoded with Base58)
+   * @example "72wKQJZSaPkF6cXAfngumqv8EUNV8S9SordznHZ1bHgC"
+   */
+  address: string;
 }

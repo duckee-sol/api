@@ -35,6 +35,10 @@ export class UserRepository {
     return this.mapEntityToModel(created);
   }
 
+  async update(id: number, update: Partial<User>) {
+    await this.userRepo.update({id}, update);
+  }
+
   async findOne(where: FindOptionsWhere<UserEntity>): Promise<User | undefined> {
     const entity = await this.userRepo.findOne({
       where,

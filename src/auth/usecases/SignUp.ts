@@ -14,7 +14,7 @@ export class SignUp {
   ) {}
 
   // TODO: transactional
-  async call({ channel, token }: SignInAndUpInput): Promise<User> {
+  async call({ channel, token, address }: SignInAndUpInput): Promise<User> {
     const loginChannel = this.loginChannels.getLoginChannel(channel);
     const socialLoginResult = await loginChannel.verifyToken(token);
 
@@ -27,7 +27,7 @@ export class SignUp {
       nickname: generateSlug(2),
       email: socialLoginResult.email,
       profileImage: socialLoginResult.profileImage,
-      address: wallet.address,
+      address,
     });
     await loginChannel.saveCredential(user, socialLoginResult);
     return user;

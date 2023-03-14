@@ -14,7 +14,7 @@ export class SignIn {
   ) {}
 
   // TODO: transactional
-  async call({ channel, token }: SignInAndUpInput): Promise<User> {
+  async call({ channel, token, address }: SignInAndUpInput): Promise<User> {
     const loginChannel = this.loginChannels.getLoginChannel(channel);
     const { email } = await loginChannel.verifyToken(token);
 
@@ -23,6 +23,7 @@ export class SignIn {
       await this.checkUserUsesOtherLoginChannel.call(channel, email);
       throw new NoAccount();
     }
+    await this.userRepository.update(user.id, { address });
     return user;
   }
 }

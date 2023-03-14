@@ -5,6 +5,7 @@ import { SocialLoginType } from '../../types';
 import { FirebaseLogin } from './FirebaseLogin';
 import { TestLogin } from './TestLogin';
 import { SocialLoginChannel } from './types';
+import { Web3AuthLogin } from './Web3AuthLogin';
 
 /**
  * Aggregates all available login channels.
@@ -13,9 +14,14 @@ import { SocialLoginChannel } from './types';
 export class LoginChannels {
   private readonly loginChannels: { [channel in SocialLoginType]: SocialLoginChannel };
 
-  constructor(private firebaseLogin: FirebaseLogin, private testLogin: TestLogin) {
+  constructor(
+    private firebaseLogin: FirebaseLogin,
+    private web3authLogin: Web3AuthLogin,
+    private testLogin: TestLogin,
+  ) {
     this.loginChannels = {
       firebase: firebaseLogin,
+      web3auth: web3authLogin,
       test: testLogin,
     };
   }
