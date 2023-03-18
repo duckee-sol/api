@@ -2,8 +2,8 @@
 
 This is API server implementation of Duckee, an generative art exchange platform on [Solana](https://solana.com/).
 
-* Testnet API Endpoint: [**api.duckee.xyz**](https://api.duckee.xyz)
-* [Swagger API Documentation](https://api.duckee.xyz/swagger)
+* Testnet API Endpoint: [**api-solana.duckee.xyz**](https://api-solana.duckee.xyz)
+* [Swagger API Documentation](https://api-solana.duckee.xyz/swagger)
 
 ## Getting Started
 
@@ -31,9 +31,17 @@ with [autoenv](https://github.com/hyperupcall/autoenv):
  $ cat .env.local
  DB_HOST=localhost:3306
  DB_USER=duckee
- PRIVATE_KEY=...
+ ADMIN_PRIVATE_KEY=...
+```
+
+Private keys are in JSON array format (Unencrypted Solana keypair). You can easily generate it with `solana-keygen`:
+
+```
+$ solana-keygen new
+$ export ADMIN_PRIVATE_KEY=`cat ~/.config/solana/id.json`
 ```
 
 ## Deploying API
 
-We use AWS Lambda
+We use AWS Lambda for deploying API.
+If you want to deploy in your own AWS account, please refer to serverless.yml for details.
